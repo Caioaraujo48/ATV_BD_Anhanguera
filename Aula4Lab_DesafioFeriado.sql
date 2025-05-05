@@ -1,4 +1,4 @@
--- DQL
+-- DDL
 CREATE DATABASE escola;
 USE escola;
 
