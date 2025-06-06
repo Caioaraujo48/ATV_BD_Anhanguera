@@ -24,25 +24,25 @@ FOR EACH ROW
 BEGIN
 	IF OLD.nome <> NEW.nome THEN
 		INSERT INTO auditoria_usuarios (id_usuario, campo_alterado, valor_antigo, valor_novo, data_alteracao)
-        VALUES (OLD.id, 'nome', OLD.nome, NEW.nome, NOW());
+        	VALUES (OLD.id, 'nome', OLD.nome, NEW.nome, NOW());
 	END IF;
     
-    IF OLD.email <> NEW.email THEN
+    	IF OLD.email <> NEW.email THEN
 		INSERT INTO auditoria_usuarios (id_usuario, campo_alterado, valor_antigo, valor_novo, data_alteracao)
-        VALUES (OLD.id, 'email', OLD.email, NEW.email, NOW());
+        	VALUES (OLD.id, 'email', OLD.email, NEW.email, NOW());
 	END IF;
     
-    IF OLD.cargo <> NEW.cargo THEN
+    	IF OLD.cargo <> NEW.cargo THEN
 		INSERT INTO auditoria_usuarios (id_usuario, campo_alterado, valor_antigo, valor_novo, data_alteracao)
-        VALUES (OLD.id, 'cargo', OLD.cargo, NEW.cargo, NOW());
+        	VALUES (OLD.id, 'cargo', OLD.cargo, NEW.cargo, NOW());
 	END IF;
 END //
 DELIMITER ;
 
 INSERT INTO usuarios (nome, email, cargo) VALUES
-('João Pereira', 'joao.pereira@email.com', 'Analista'),
-('Maria Oliveira', 'maria.oliveira@email.com', 'Gerente'),
-('Carlos Mendes', 'carlos.mendes@email.com', 'Técnico');
+	('João Pereira', 'joao.pereira@email.com', 'Analista'),
+	('Maria Oliveira', 'maria.oliveira@email.com', 'Gerente'),
+	('Carlos Mendes', 'carlos.mendes@email.com', 'Técnico');
 
 UPDATE usuarios
 SET nome = 'João Pedro Pereira', cargo = 'Supervisor'
